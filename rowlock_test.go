@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/fishy/rowlock"
+	"github.com/lggomez/rowlock"
 )
 
 func TestRowLock(t *testing.T) {
@@ -137,8 +137,8 @@ func BenchmarkLockUnlock(b *testing.B) {
 								func(b *testing.B) {
 									for i := 0; i < b.N; i++ {
 										row := rows[i%n]
-										rl.Lock(row)
-										rl.Unlock(row)
+										rl.Lock(fmt.Sprintf("%v", row))
+										rl.Unlock(fmt.Sprintf("%v", row))
 									}
 								},
 							)
@@ -148,8 +148,8 @@ func BenchmarkLockUnlock(b *testing.B) {
 								func(b *testing.B) {
 									for i := 0; i < b.N; i++ {
 										row := rows[i%n]
-										rl.RLock(row)
-										rl.RUnlock(row)
+										rl.RLock(fmt.Sprintf("%v", row))
+										rl.RUnlock(fmt.Sprintf("%v", row))
 									}
 								},
 							)

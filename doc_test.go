@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/fishy/rowlock"
+	"github.com/lggomez/rowlock"
 )
 
 func Example() {

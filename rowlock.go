@@ -7,10 +7,8 @@ import (
 // NewLocker defines a type of function that can be used to create a new Locker.
 type NewLocker func() sync.Locker
 
-// Row is the type of a row.
-//
-// It must be hashable.
-type Row interface{}
+// Row is the type of a row lock
+type Row = string
 
 // RWLocker is the abstracted interface of sync.RWMutex.
 type RWLocker interface {
